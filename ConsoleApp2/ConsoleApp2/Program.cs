@@ -13,6 +13,7 @@ namespace basicCalculator
             bool secondValuecheck = false;
             double numValue1 = 0;
             double numValue2 = 0;
+            string numModifier = ("");
             while (firstValuecheck == false)
             {
                 Console.WriteLine("Please input the first value");
@@ -29,6 +30,9 @@ namespace basicCalculator
                     firstValuecheck = false;
                 }
             }
+            Console.WriteLine("Please input an Operation for the two values");
+            Console.WriteLine("The following options are available: + - * /");
+            numModifier = Console.ReadLine();
 
             while (secondValuecheck == false)
             {
@@ -48,12 +52,27 @@ namespace basicCalculator
                 }
             }
 
-           
 
-            if (firstValuecheck  == true && secondValuecheck == true)
+
+            if (firstValuecheck == true && secondValuecheck == true)
             {
-                Console.WriteLine("Value 1 + Value 2 =");
-                Console.WriteLine( numValue1 + numValue2);
+                Console.WriteLine(numValue1 + " " + numModifier + " " + numValue2 + " ");
+
+                switch (numModifier)
+                {
+                    case "+":
+                        Console.WriteLine(numValue1 + numValue2);
+                        break;
+                    case "-":
+                        Console.WriteLine(numValue1 - numValue2);
+                        break;
+                    case "/":
+                        Console.WriteLine(numValue1 / numValue2);
+                        break;
+                    default:
+                        Console.WriteLine(numValue1 * numValue2);
+                        break;
+                }
             }
             else
             {
